@@ -37,4 +37,3 @@ class MyApp(MDApp):
 
 MyApp().run()
 
-print("Hello World!")
