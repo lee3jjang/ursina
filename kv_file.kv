@@ -1,0 +1,67 @@
+Screen:
+	MDNavigationLayout:
+		ScreenManager:
+			id: screen_manager
+			Screen:
+				name: "scr 1"
+				BoxLayout:
+					orientation: "vertical"
+					MDToolbar:
+						title: "Navigation Drawer"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+					Widget:
+			Screen:
+				name: "scr 2"
+				BoxLayout:
+					orientation: "vertical"
+					MDToolbar:
+						title: "Navigation Drawer (2)"
+                        elevation: 10
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+					Widget:
+		MDNavigationDrawer:
+			id: nav_drawer
+			ContentNavigationDrawer:
+				screen_manager: screen_manager
+				id: content_drawer
+
+<ContentNavigationDrawer>:
+	orientation: "vertical"
+	padding: "8dp"
+	spacing: "8dp"
+	AnchorLayout:
+		anchor_x: "left"
+		size_hint_y: None
+		height: avatar.height
+		Image:
+			id: avatar
+			size_hint: None, None
+			size: "56dp", "56dp"
+			source: "kivymd.png"
+	MDLabel:
+		text: "KivyMD library"
+		font_style: "Button"
+		size_hint_y: None
+		height: self.texture_size[1]
+	MDLabel:
+		text: "kivydevelopment@gmail.com"
+		font_style: "Caption"
+		size_hint_y: None
+		height: self.texture_size[1]
+	ScrollView:
+        DrawerList:
+            id: md_list
+
+<ItemDrawer>:
+	theme_text_color: "Custom"
+	on_release: self.parent.set_color_item(self)
+	IconLeftWidget:
+		id: icon
+		icon: root.icon
+		theme_text_color: "Custom"
+
+
+									
+
+	
